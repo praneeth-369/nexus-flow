@@ -3,11 +3,20 @@
   "version": "1.0.0",
   "description": "NexusFlow - Modern Project Dependency & Critical Path Management SaaS",
   "private": true,
+  "type": "module",
   "scripts": {
+    "start": "node server/server.js",
+    "build": "npm install --prefix server",
     "server": "npm run dev --prefix server",
     "client": "npm run dev --prefix client",
     "build:client": "npm run build --prefix client",
     "test": "npm test --prefix server"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.9.5"
   },
   "keywords": [
     "mern",
