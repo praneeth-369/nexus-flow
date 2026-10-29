@@ -1,0 +1,411 @@
+{
+  "info": {
+    "name": "NexusFlow - Project Dependency & Critical Path API",
+    "_postman_id": "nexusflow-p395-collection",
+    "description": "Comprehensive Postman Test Collection for HACK-P395: Project Dependency Manager (RESTful API, DAG Validation, CPM Calculations, and RBAC Security).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000/api",
+      "type": "string"
+    },
+    {
+      "key": "leadToken",
+      "value": "nexus-jwt-usr-1",
+      "type": "string"
+    },
+    {
+      "key": "viewerToken",
+      "value": "nexus-jwt-usr-3",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Health & System",
+      "item": [
+        {
+          "name": "Health Check & Storage Status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["health"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "2. Authentication & RBAC",
+      "item": [
+        {
+          "name": "Login - Project Lead (Admin)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"identifier\": \"lead@nexusflow.io\",\n  \"password\": \"lead123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login - Team Member (Editor)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"identifier\": \"member@nexusflow.io\",\n  \"password\": \"member123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login - Viewer (Read-only)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"identifier\": \"viewer@nexusflow.io\",\n  \"password\": \"viewer123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Demo Accounts",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/auth/accounts",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "accounts"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "3. Project Workspaces",
+      "item": [
+        {
+          "name": "Get All Workspaces",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/project/all",
+              "host": ["{{baseUrl}}"],
+              "path": ["project", "all"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Project Details & KPIs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/project?projectId=nexusflow-cloud-v2",
+              "host": ["{{baseUrl}}"],
+              "path": ["project"],
+              "query": [{ "key": "projectId", "value": "nexusflow-cloud-v2" }]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create New Project",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "x-user-role", "value": "Project Lead" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Mobile API Launch\",\n  \"description\": \"Next-gen mobile gateway release\",\n  \"taskPrefix\": \"MOB\",\n  \"template\": \"starter\",\n  \"targetDate\": \"2026-12-15\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/project/new",
+              "host": ["{{baseUrl}}"],
+              "path": ["project", "new"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Project Settings",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "x-user-role", "value": "Project Lead" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Cloud Platform v2.0 Enterprise\",\n  \"targetDate\": \"2026-12-31\",\n  \"taskPrefix\": \"NX\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/project/nexusflow-cloud-v2",
+              "host": ["{{baseUrl}}"],
+              "path": ["project", "nexusflow-cloud-v2"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Export Project (JSON)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/project/export?format=json",
+              "host": ["{{baseUrl}}"],
+              "path": ["project", "export"],
+              "query": [{ "key": "format", "value": "json" }]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Export Project (CSV)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/project/export?format=csv",
+              "host": ["{{baseUrl}}"],
+              "path": ["project", "export"],
+              "query": [{ "key": "format", "value": "csv" }]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "4. Tasks & CPM Engine",
+      "item": [
+        {
+          "name": "Get All Tasks (with CPM & Readiness)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/tasks",
+              "host": ["{{baseUrl}}"],
+              "path": ["tasks"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single Task with Blast Radius",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/tasks/NX-105",
+              "host": ["{{baseUrl}}"],
+              "path": ["tasks", "NX-105"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Task (Project Lead)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "x-user-role", "value": "Project Lead" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"taskId\": \"NX-113\",\n  \"title\": \"Postman Integration Verification\",\n  \"description\": \"Verify automated test collections against live API\",\n  \"priority\": \"High\",\n  \"status\": \"Ready\",\n  \"dueDate\": \"2026-11-20\",\n  \"estimatedDays\": 2,\n  \"dependencies\": [\"NX-103\"],\n  \"tags\": [\"Testing\", \"Postman\"]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/tasks",
+              "host": ["{{baseUrl}}"],
+              "path": ["tasks"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Task Status (Team Member Allowed)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "x-user-role", "value": "Team Member" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"Completed\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/tasks/NX-107",
+              "host": ["{{baseUrl}}"],
+              "path": ["tasks", "NX-107"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "RBAC Violation Check: Viewer Creates Task (Expect 403)",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "x-user-role", "value": "Viewer" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"taskId\": \"NX-999\",\n  \"title\": \"Illegal Viewer Insertion\",\n  \"dueDate\": \"2026-12-01\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/tasks",
+              "host": ["{{baseUrl}}"],
+              "path": ["tasks"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Task (Project Lead)",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "x-user-role", "value": "Project Lead" }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/tasks/NX-113",
+              "host": ["{{baseUrl}}"],
+              "path": ["tasks", "NX-113"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "5. Dependency Cycle Validation",
+      "item": [
+        {
+          "name": "Check Valid Dependency (No Cycle)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"taskId\": \"NX-107\",\n  \"proposedDependencies\": [\"NX-102\"]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/tasks/validate-dependency",
+              "host": ["{{baseUrl}}"],
+              "path": ["tasks", "validate-dependency"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Check Invalid Circular Dependency (Detects Cycle)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"taskId\": \"NX-101\",\n  \"proposedDependencies\": [\"NX-112\"]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/tasks/validate-dependency",
+              "host": ["{{baseUrl}}"],
+              "path": ["tasks", "validate-dependency"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "6. Schedule Intelligence & AI",
+      "item": [
+        {
+          "name": "Get Smart Advisor Deep Analysis",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/advisor/analyze",
+              "host": ["{{baseUrl}}"],
+              "path": ["advisor", "analyze"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "AI Chatbot — Instant Bottleneck Telemetry (<75ms)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"What is the top bottleneck?\"\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat",
+              "host": ["{{baseUrl}}"],
+              "path": ["chat"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "AI Chatbot — Critical Path Query (<75ms)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"What is our Critical Path?\"\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/chat",
+              "host": ["{{baseUrl}}"],
+              "path": ["chat"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

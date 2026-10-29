@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background-color: #09090B;
+  color: #FAFAFA;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(9, 9, 11, 0.7);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272A;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3F3F46;
+}
+
+/* Glassmorphism helpers - Crisp Neutral Charcoal */
+.glass-panel {
+  background: rgba(18, 18, 21, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(39, 39, 42, 0.8);
+}
+
+.glass-modal {
+  background: rgba(18, 18, 21, 0.94);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(63, 63, 70, 0.7);
+}
+
+/* XYFlow Custom Dark Theme Overrides */
+.react-flow__background {
+  background-color: #09090B !important;
+}
+
+.react-flow__controls {
+  background: #121215 !important;
+  border: 1px solid #27272A !important;
+  border-radius: 10px !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.7) !important;
+}
+
+.react-flow__controls-button {
+  background: #121215 !important;
+  border-bottom: 1px solid #27272A !important;
+  color: #A1A1AA !important;
+  fill: #A1A1AA !important;
+}
+
+.react-flow__controls-button:hover {
+  background: #202024 !important;
+  color: #FAFAFA !important;
+  fill: #FAFAFA !important;
+}
+
+.react-flow__edge-path {
+  stroke: #3F3F46 !important;
+  stroke-width: 2px !important;
+  transition: stroke 0.2s, stroke-width 0.2s;
+}
+
+.react-flow__edge.selected .react-flow__edge-path,
+.react-flow__edge:hover .react-flow__edge-path {
+  stroke: #10B981 !important;
+  stroke-width: 2.5px !important;
+}
+
+.react-flow__edge.critical-edge .react-flow__edge-path {
+  stroke: #F59E0B !important;
+  stroke-width: 3px !important;
+  filter: drop-shadow(0 0 6px rgba(245, 158, 11, 0.6));
+}
+
+.react-flow__edge.blast-edge .react-flow__edge-path {
+  stroke: #F43F5E !important;
+  stroke-width: 2.5px !important;
+  stroke-dasharray: 5;
+  animation: dash 1s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -10;
+  }
+}
+
+/* Dragging state */
+.react-flow__node.selected {
+  outline: none !important;
+}

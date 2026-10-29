@@ -1,0 +1,278 @@
+{
+  "project": {
+    "projectId": "nexusflow-cloud-v2",
+    "name": "Cloud Platform v2.0 Launch",
+    "description": "Enterprise multi-tenant cloud platform overhaul with distributed dependency orchestration and real-time telemetry.",
+    "targetDate": "2026-11-26",
+    "status": "active"
+  },
+  "tasks": [
+    {
+      "taskId": "NX-101",
+      "title": "System Architecture & Data Schema Specification",
+      "description": "Define distributed microservice boundaries, event schemas, and tenant isolation models.",
+      "owner": {
+        "name": "Alex Rivera",
+        "role": "System Architect",
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=80",
+        "initials": "AR"
+      },
+      "priority": "Critical",
+      "status": "Completed",
+      "dueDate": "2026-10-13",
+      "estimatedDays": 4,
+      "dependencies": [],
+      "tags": [
+        "Architecture",
+        "Core"
+      ]
+    },
+    {
+      "taskId": "NX-102",
+      "title": "Auth0 & Enterprise SSO Gateway Integration",
+      "description": "Implement SAML 2.0, OpenID Connect, and granular RBAC token validation middleware.",
+      "owner": {
+        "name": "Marcus Chen",
+        "role": "Backend Lead",
+        "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&auto=format&fit=crop&q=80",
+        "initials": "MC"
+      },
+      "priority": "High",
+      "status": "Completed",
+      "dueDate": "2026-10-17",
+      "estimatedDays": 5,
+      "dependencies": [
+        "NX-101"
+      ],
+      "tags": [
+        "Security",
+        "Auth"
+      ]
+    },
+    {
+      "taskId": "NX-103",
+      "title": "Core Microservices & Database Sharding Engine",
+      "description": "Build horizontal partition engine, connection pooling, and tenant routing layers.",
+      "owner": {
+        "name": "Marcus Chen",
+        "role": "Backend Lead",
+        "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&auto=format&fit=crop&q=80",
+        "initials": "MC"
+      },
+      "priority": "Critical",
+      "status": "Completed",
+      "dueDate": "2026-10-19",
+      "estimatedDays": 7,
+      "dependencies": [
+        "NX-101"
+      ],
+      "tags": [
+        "Backend",
+        "Database"
+      ]
+    },
+    {
+      "taskId": "NX-104",
+      "title": "Design System & Dark SaaS Component Library",
+      "description": "Establish Tailwind token hierarchy, Raycast-style keyboard primitives, and glassmorphic panels.",
+      "owner": {
+        "name": "Elena Rostova",
+        "role": "Frontend Lead",
+        "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&auto=format&fit=crop&q=80",
+        "initials": "ER"
+      },
+      "priority": "High",
+      "status": "Completed",
+      "dueDate": "2026-10-20",
+      "estimatedDays": 5,
+      "dependencies": [
+        "NX-101"
+      ],
+      "tags": [
+        "Design",
+        "UI"
+      ]
+    },
+    {
+      "taskId": "NX-105",
+      "title": "GraphQL Federation & Central API Gateway",
+      "description": "Supergraph composition with Apollo Federation, rate limiting, and response caching.",
+      "owner": {
+        "name": "Dev Patel",
+        "role": "Cloud Engineer",
+        "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&auto=format&fit=crop&q=80",
+        "initials": "DP"
+      },
+      "priority": "Critical",
+      "status": "In Progress",
+      "dueDate": "2026-10-25",
+      "estimatedDays": 6,
+      "dependencies": [
+        "NX-102",
+        "NX-103"
+      ],
+      "tags": [
+        "API",
+        "Gateway"
+      ]
+    },
+    {
+      "taskId": "NX-106",
+      "title": "Web Workspace UI & Team Management Dashboard",
+      "description": "Build real-time tenant switcher, member access grants, and audit log exploration views.",
+      "owner": {
+        "name": "Elena Rostova",
+        "role": "Frontend Lead",
+        "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&auto=format&fit=crop&q=80",
+        "initials": "ER"
+      },
+      "priority": "High",
+      "status": "In Progress",
+      "dueDate": "2026-10-31",
+      "estimatedDays": 8,
+      "dependencies": [
+        "NX-104",
+        "NX-103"
+      ],
+      "tags": [
+        "Frontend",
+        "App"
+      ]
+    },
+    {
+      "taskId": "NX-107",
+      "title": "Real-Time Event Bus & WebSocket Dispatcher",
+      "description": "Redis Pub/Sub cluster adapter for low-latency node-to-node dependency state sync.",
+      "owner": {
+        "name": "Dev Patel",
+        "role": "Cloud Engineer",
+        "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&auto=format&fit=crop&q=80",
+        "initials": "DP"
+      },
+      "priority": "Medium",
+      "status": "Ready",
+      "dueDate": "2026-11-03",
+      "estimatedDays": 5,
+      "dependencies": [
+        "NX-103"
+      ],
+      "tags": [
+        "Realtime",
+        "Events"
+      ]
+    },
+    {
+      "taskId": "NX-108",
+      "title": "Interactive Dependency Graph & Canvas Engine",
+      "description": "Integrate XYFlow canvas with Dagre automated hierarchy solver and minimap viewport.",
+      "owner": {
+        "name": "Sofia Kim",
+        "role": "UI Engineer",
+        "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=120&auto=format&fit=crop&q=80",
+        "initials": "SK"
+      },
+      "priority": "Critical",
+      "status": "In Progress",
+      "dueDate": "2026-11-02",
+      "estimatedDays": 6,
+      "dependencies": [
+        "NX-104",
+        "NX-106"
+      ],
+      "tags": [
+        "Graph",
+        "Visualization"
+      ]
+    },
+    {
+      "taskId": "NX-109",
+      "title": "End-to-End Encryption & Zero-Trust Security Audit",
+      "description": "Cryptographic envelope encryption for data at rest, KMS rotation, and penetrative testing.",
+      "owner": {
+        "name": "Jordan Miller",
+        "role": "Security SecOps",
+        "avatar": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=120&auto=format&fit=crop&q=80",
+        "initials": "JM"
+      },
+      "priority": "Critical",
+      "status": "Blocked",
+      "dueDate": "2026-11-06",
+      "estimatedDays": 4,
+      "dependencies": [
+        "NX-105"
+      ],
+      "tags": [
+        "Security",
+        "Audit"
+      ]
+    },
+    {
+      "taskId": "NX-110",
+      "title": "Distributed Integration Testing & Load Benchmarks",
+      "description": "K6 synthetic traffic stress tests (50,000 req/s) against multi-region staging ingress.",
+      "owner": {
+        "name": "Sarah Jenkins",
+        "role": "QA Engineer",
+        "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=120&auto=format&fit=crop&q=80",
+        "initials": "SJ"
+      },
+      "priority": "High",
+      "status": "Blocked",
+      "dueDate": "2026-11-10",
+      "estimatedDays": 5,
+      "dependencies": [
+        "NX-105",
+        "NX-106"
+      ],
+      "tags": [
+        "QA",
+        "Testing"
+      ]
+    },
+    {
+      "taskId": "NX-111",
+      "title": "SOC2 Type II Compliance & Third-Party Sign-off",
+      "description": "External auditor attestation, immutable evidence logs, and disaster recovery drill.",
+      "owner": {
+        "name": "Jordan Miller",
+        "role": "Security SecOps",
+        "avatar": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?w=120&auto=format&fit=crop&q=80",
+        "initials": "JM"
+      },
+      "priority": "Medium",
+      "status": "Blocked",
+      "dueDate": "2026-11-14",
+      "estimatedDays": 3,
+      "dependencies": [
+        "NX-109"
+      ],
+      "tags": [
+        "Compliance",
+        "Legal"
+      ]
+    },
+    {
+      "taskId": "NX-112",
+      "title": "Production Multi-Region Kubernetes Rollout",
+      "description": "Zero-downtime canary deployment across US-East, EU-Central, and AP-Southeast clusters.",
+      "owner": {
+        "name": "Alex Rivera",
+        "role": "System Architect",
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&auto=format&fit=crop&q=80",
+        "initials": "AR"
+      },
+      "priority": "Critical",
+      "status": "Blocked",
+      "dueDate": "2026-11-18",
+      "estimatedDays": 4,
+      "dependencies": [
+        "NX-110",
+        "NX-111"
+      ],
+      "tags": [
+        "DevOps",
+        "Deployment"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "nexusflow",
+  "version": "1.0.0",
+  "description": "NexusFlow - Modern Project Dependency & Critical Path Management SaaS",
+  "private": true,
+  "scripts": {
+    "server": "npm run dev --prefix server",
+    "client": "npm run dev --prefix client",
+    "build:client": "npm run build --prefix client",
+    "test": "npm test --prefix server"
+  },
+  "keywords": [
+    "mern",
+    "critical-path-method",
+    "dag",
+    "dependency-graph",
+    "saas",
+    "project-management"
+  ],
+  "author": "NexusFlow Engineering",
+  "license": "MIT"
+}
