@@ -333,7 +333,7 @@ Total: 19 tests passed, 0 failed, 5 suites.
 ### Final Submission Links
 Per hackathon guidelines, large binary files (video recordings and presentations) are hosted on cloud storage and provided via shareable links:
 
-* **GitHub Repository:** `https://github.com/<YOUR_ORGANIZATION>/nexusflow`
+* **GitHub Repository:** `https://github.com/praneeth-369/nexus-flow`
 * **Live Application URL:** `<DEPLOYED_FRONTEND_URL>`
 * **Backend API Base URL:** `<DEPLOYED_BACKEND_URL>/api`
 * **Demo Video Walkthrough (3–5 Mins):** `<GOOGLE_DRIVE_OR_YOUTUBE_UNLISTED_LINK>`
