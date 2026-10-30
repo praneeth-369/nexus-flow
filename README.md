@@ -335,7 +335,7 @@ Per hackathon guidelines, large binary files (video recordings and presentations
 
 * **GitHub Repository:** `https://github.com/praneeth-369/nexus-flow`
 * **Live Application URL:** `<DEPLOYED_FRONTEND_URL>`
-* **Backend API Base URL:** `<DEPLOYED_BACKEND_URL>/api`
+* **Backend API Base URL:** `https://nexus-flow-xz32.onrender.com/api`
 * **Demo Video Walkthrough (3–5 Mins):** `<GOOGLE_DRIVE_OR_YOUTUBE_UNLISTED_LINK>`
 * **PowerPoint Presentation (12 Slides):** `<GOOGLE_SLIDES_OR_DRIVE_LINK>`
 

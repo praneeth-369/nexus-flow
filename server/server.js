@@ -36,6 +36,22 @@ app.use('/api/project', projectRoutes);
 app.use('/api/advisor', advisorRoutes);
 app.use('/api/chat', chatRoutes);
 
+// Root Welcome Route
+app.get('/', (req, res) => {
+  res.json({
+    status: 'online',
+    app: 'NexusFlow API Gateway',
+    version: '1.0.0',
+    health: '/api/health',
+    endpoints: {
+      tasks: '/api/tasks',
+      projects: '/api/project/all',
+      auth: '/api/auth/accounts',
+    },
+    message: 'NexusFlow Project Dependency & Critical Path Management API is active.',
+  });
+});
+
 // General Health Check
 app.get('/api/health', (req, res) => {
   res.json({
