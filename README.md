@@ -133,8 +133,8 @@ flowchart TD
 
 ### Step 1: Clone Repository
 ```bash
-git clone https://github.com/<YOUR_ORGANIZATION>/nexusflow.git
-cd nexusflow
+git clone https://github.com/praneeth-369/nexus-flow.git
+cd nexus-flow
 ```
 
 ### Step 2: Install Dependencies
@@ -328,7 +328,7 @@ Total: 19 tests passed, 0 failed, 5 suites.
 
 ### Cloud Environment Configuration
 * In Render/Railway: Set `MONGODB_URI`, `PORT=5000`, `GEMINI_API_KEY`, and `NODE_ENV=production`.
-* In Vercel/Netlify: Set `VITE_API_BASE=https://<your-render-backend-url>/api`.
+* In Vercel/Netlify: Set `VITE_API_BASE=https://nexus-flow-xz32.onrender.com/api`.
 
 ### Final Submission Links
 Per hackathon guidelines, large binary files (video recordings and presentations) are hosted on cloud storage and provided via shareable links:
